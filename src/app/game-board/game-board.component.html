@@ -1,4 +1,4 @@
-<div>
+<div class="boardBoxContainer">
     <h1>TicTacToe</h1>
 
     <div class="winner" *ngIf="winner">
@@ -7,10 +7,9 @@
 
     <div class="boardBox" *ngFor='let columns of myBoard.cells; let i=index;'>
         <div *ngFor="let cell of columns; let j=index;">
-            <div class="cell" (click)="selectedCell($event, i, j)">{{cell.displayValue}}</div>
-            <!-- <p>{{i + " " + j + " " + cell.displayValue}}</p> -->
+            <div [ngClass]="cell.cssClass" (click)="selectedCell($event, i, j)">{{cell.displayValue}}</div>
         </div>
     </div>
-
+    <hr>
     <button (click)="reset()">Restart Game</button>
 </div>

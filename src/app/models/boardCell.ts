@@ -1,5 +1,6 @@
 export interface BoardCell {
     hasValue : boolean,
     value : boolean,
-    displayValue : string
+    displayValue : string,
+    cssClass: string
 }

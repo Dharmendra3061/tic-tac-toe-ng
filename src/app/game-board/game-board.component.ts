@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Board } from '../models/board';
 import { BoardCell } from '../models/boardCell';
 
@@ -13,11 +13,11 @@ export class GameBoardComponent implements OnInit {
 
   xValue: string = 'x';
   yValue: string = '0';
-  emptyCell: BoardCell = { hasValue: false, value: false, displayValue: '' };
+  emptyCell: BoardCell = { hasValue: false, value: false, displayValue: '', cssClass:'' };
   emptyCells: BoardCell[][] = [
-    [{ hasValue: false, value: false, displayValue: '' }, { hasValue: false, value: false, displayValue: '' }, { hasValue: false, value: false, displayValue: '' }],
-    [{ hasValue: false, value: false, displayValue: '' }, { hasValue: false, value: false, displayValue: '' }, { hasValue: false, value: false, displayValue: '' }],
-    [{ hasValue: false, value: false, displayValue: '' }, { hasValue: false, value: false, displayValue: '' }, { hasValue: false, value: false, displayValue: '' }]
+    [{ hasValue: false, value: false, displayValue: '', cssClass: 'cell' }, { hasValue: false, value: false, displayValue: '', cssClass: 'cell' }, { hasValue: false, value: false, displayValue: '', cssClass: 'cell' }],
+    [{ hasValue: false, value: false, displayValue: '', cssClass: 'cell' }, { hasValue: false, value: false, displayValue: '', cssClass: 'cell' }, { hasValue: false, value: false, displayValue: '', cssClass: 'cell' }],
+    [{ hasValue: false, value: false, displayValue: '', cssClass: 'cell' }, { hasValue: false, value: false, displayValue: '', cssClass: 'cell' }, { hasValue: false, value: false, displayValue: '', cssClass: 'cell' }]
   ];
 
   myBoard: Board = {
@@ -39,6 +39,7 @@ export class GameBoardComponent implements OnInit {
       this.myBoard.cells[i][j].displayValue = this.turns;
       this.myBoard.cells[i][j].value = this.turns === this.xValue;
       this.turns = this.turns === this.xValue ? this.yValue : this.xValue;
+      this.myBoard.cells[i][j].cssClass = this.turns === this.xValue ? 'cellx' : 'cell0';
       this.winner = this.checkWinner();
     }
   }
@@ -109,9 +110,9 @@ export class GameBoardComponent implements OnInit {
     this.winner = '';
     this.turns = this.xValue;
     this.emptyCells = [
-      [{ hasValue: false, value: false, displayValue: '' }, { hasValue: false, value: false, displayValue: '' }, { hasValue: false, value: false, displayValue: '' }],
-      [{ hasValue: false, value: false, displayValue: '' }, { hasValue: false, value: false, displayValue: '' }, { hasValue: false, value: false, displayValue: '' }],
-      [{ hasValue: false, value: false, displayValue: '' }, { hasValue: false, value: false, displayValue: '' }, { hasValue: false, value: false, displayValue: '' }]
+      [{ hasValue: false, value: false, displayValue: '', cssClass: 'cell' }, { hasValue: false, value: false, displayValue: '', cssClass: 'cell' }, { hasValue: false, value: false, displayValue: '', cssClass: 'cell' }],
+      [{ hasValue: false, value: false, displayValue: '', cssClass: 'cell' }, { hasValue: false, value: false, displayValue: '', cssClass: 'cell' }, { hasValue: false, value: false, displayValue: '', cssClass: 'cell' }],
+      [{ hasValue: false, value: false, displayValue: '', cssClass: 'cell' }, { hasValue: false, value: false, displayValue: '', cssClass: 'cell' }, { hasValue: false, value: false, displayValue: '', cssClass: 'cell' }]
     ];
     this.myBoard = {
       cells: this.emptyCells
