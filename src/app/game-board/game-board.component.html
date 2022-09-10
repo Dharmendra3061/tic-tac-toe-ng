@@ -1,0 +1,16 @@
+<div>
+    <h1>TicTacToe</h1>
+
+    <div class="winner" *ngIf="winner">
+        <h2>Winner is : {{winner}}</h2>
+    </div>
+
+    <div class="boardBox" *ngFor='let columns of myBoard.cells; let i=index;'>
+        <div *ngFor="let cell of columns; let j=index;">
+            <div class="cell" (click)="selectedCell($event, i, j)">{{cell.displayValue}}</div>
+            <!-- <p>{{i + " " + j + " " + cell.displayValue}}</p> -->
+        </div>
+    </div>
+
+    <button (click)="reset()">Restart Game</button>
+</div>

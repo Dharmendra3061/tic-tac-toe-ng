@@ -1,0 +1,32 @@
+.boardBox {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #0084f0;
+    padding: 3px;
+    width: 155px;
+    height: 51px;
+  }
+.cell {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 1px;
+    text-align: center;
+    height: 50px;
+}
+.cell:hover{
+    border: 2px solid rgb(241, 145, 145);
+}
+.cell0 {
+    background-color: rgba(37, 219, 67, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 1px;
+    text-align: center;
+    height: 50px;
+}
+.cellX {
+    background-color: rgba(196, 20, 172, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 1px;
+    text-align: center;
+    height: 50px;
+}
